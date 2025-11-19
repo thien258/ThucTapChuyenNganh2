@@ -17,9 +17,10 @@
             </tr>
         </thead>
         <tbody>
+            @forelse($categories as $object)
             <tr>
-                <th scope="row">1</th>
-                <td>GUCCI</td>
+                <th scope="row">{{ $object->id }}</th>
+                <td>{{$object->name}}</td>
                 <td>60000</td>
                 <td>@gc</td>
 
@@ -27,24 +28,12 @@
                 <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
                 <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
             </tr>
+            @empty
             <tr>
-                <th scope="row">2</th>
-                <td>Versace</td>
-                <td>500000</td>
-                <td>@ve</td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
+                <td>khong tim thay</td>
             </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Chanel</td>
-                <td>123456</td>
-                <td>@cn</td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
-            </tr>
+            @endforelse
+
         </tbody>
     </table>
 </div>

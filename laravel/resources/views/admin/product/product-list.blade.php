@@ -1,7 +1,7 @@
 @extends('layout/admin')
 @section('body')
 <div class="card-footer small text-mutted">
-    <h3>category</h3>
+    <h3>product</h3>
     <a href="" class="btn btn-primary">Add</a>
     <table class="table">
         <thead>
@@ -17,9 +17,10 @@
             </tr>
         </thead>
         <tbody>
+            @forelse($products as $object)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th scope="row">{{ $object->id }}</th>
+                <td>{{ $object->name }}</td>
                 <td>Otto</td>
                 <td>@mdo</td>
 
@@ -27,24 +28,12 @@
                 <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
                 <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
             </tr>
+
+            @empty
             <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
+                <td>khong tim thay</td>
             </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
-            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>

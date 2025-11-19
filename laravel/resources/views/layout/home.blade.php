@@ -32,6 +32,7 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+			       <li class="nav-item active"><a class="nav-link" href="{{ route('customer'	) }}">customer</a></li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
@@ -55,7 +56,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="">Login</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('tracking') }}">Tracking</a></li>
                 </ul>
