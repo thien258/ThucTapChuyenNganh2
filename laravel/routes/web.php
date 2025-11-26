@@ -14,9 +14,9 @@ Route::get('/customer', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/category', function () {
-    return view('category');
-})->name('category');
+// Route::get('/category', function () {
+//     return view('category');
+// })->name('category');
 Route::get('/producdetail', function () {
     return view('producdetail');
 })->name('producdetail');
@@ -44,11 +44,17 @@ Route::get('/tracking', function () {
 })->name('tracking');
 
 //////////////////
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
-Route::get('/admin/category',[CategoryController::class,'index'])->name('admin.category');
-Route::get('/admin/product',[ProductController::class,'index'])->name('admin.product');
+// Route::get('/admin', function () {
+//     return view('admin');
+// })->name('admin');
+  Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('category', CategoryController::class);
+         Route::get('/', function () {
+            return view('admin');
+        })->name('dashboard');
+
+        Route::resource('product',ProductController::class);
+    });
 
 Auth::routes();
 Route::get('logout',[HomeController::class,'logout'])->name('logout');

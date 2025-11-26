@@ -2,7 +2,7 @@
 @section('body')
 <div class="card-footer small text-mutted">
     <h3>product</h3>
-    <a href="" class="btn btn-primary">Add</a>
+    <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Add</a>
     <table class="table">
         <thead>
             <tr>
@@ -25,8 +25,13 @@
                 <td>@mdo</td>
 
                 <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href=""><i class="fa-solid fa-trash"></i></a></td>
+                <td><a href=" {{ route('admin.product.edit',['product'=>$object->id]) }}  "><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
+                <td><a href="{{route('admin.product.destroy',['product'=>$object->id])}}" title="Delete {{$object->name}}" onclick="event.preventDefault();window.confirm('Bạn đã chắc chắn xóa '+ '{{$object->name}}' +' chưa?') ?document.getElementById('product-delete-{{ $object->id }}').submit() :0;" class="btn btn-danger"><i class="far fa-trash-alt"></i>
+                              <form action="{{ route('admin.product.destroy', ['product' => $object->id]) }}" method="post" id="product-delete-{{ $object->id }}">
+                                  {{ csrf_field() }}
+                                  {{ method_field('delete') }}
+                              </form>
+                          </a></td>
             </tr>
 
             @empty

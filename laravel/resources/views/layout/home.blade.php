@@ -37,7 +37,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="{{ route('category') }}">Shop Category</a></li>
+
                   <li class="nav-item"><a class="nav-link" href="{{ route('producdetail') }}">Product Details</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('productcheckout') }}">Product Checkout</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{route('confirmation')}}">Confirmation</a></li>
@@ -56,7 +56,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="">Login</a></li>
+                   <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                   <li class="nav-item"><a class="nav-link" href="{{ route('tracking') }}">Tracking</a></li>
                 </ul>
