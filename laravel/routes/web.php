@@ -4,10 +4,16 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+Route::prefix('admin')->name('admin.')->group(function () {
+      Route::resource('category', CategoryController::class);
+       Route::get('/', function () {
+          return view('admin');
+      })->name('dashboard');
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+      Route::resource('product',ProductController::class);
+  });
+
+Route::get('/', [App\Http\Controllers\HomeController::class,'index'])->name('home');
 Route::get('/customer', function () {
     return view('customer');
 })->name('customer');
@@ -47,14 +53,6 @@ Route::get('/tracking', function () {
 // Route::get('/admin', function () {
 //     return view('admin');
 // })->name('admin');
-  Route::prefix('admin')->name('admin.')->group(function () {
-        Route::resource('category', CategoryController::class);
-         Route::get('/', function () {
-            return view('admin');
-        })->name('dashboard');
-
-        Route::resource('product',ProductController::class);
-    });
 
 Auth::routes();
 Route::get('logout',[HomeController::class,'logout'])->name('logout');

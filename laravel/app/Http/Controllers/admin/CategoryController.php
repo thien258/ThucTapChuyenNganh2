@@ -23,6 +23,8 @@ class CategoryController extends Controller
       public function store(Request $request){
         $category=Category::create([
             'name'=>$request->name,
+            'image'=>$request->image,
+            'status'=>$request->status,
             
         ]);
         if($category)
@@ -41,6 +43,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->update([
             'name'=>$request->name,
+            'image'=>$request->image,
+            'status'=>$request->status,
         ]);
         if ($category)
             return redirect()->route('admin.category.index');

@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = product::create([
-            'name' => $request->name,
+            'title' => $request->title,
 
         ]);
         if ($product)
@@ -42,7 +42,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->update([
-            'name'=>$request->name,
+            'title'=>$request->title,
         ]);
         if ($product)
             return redirect()->route('admin.product.index');
