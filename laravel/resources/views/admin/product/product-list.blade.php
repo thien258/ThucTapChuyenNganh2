@@ -2,7 +2,7 @@
 @section('body')
 <div class="card-footer small text-mutted">
     <h3>product</h3>
-    <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Add</a>
+   
     <table class="table">
         <thead>
             <tr>

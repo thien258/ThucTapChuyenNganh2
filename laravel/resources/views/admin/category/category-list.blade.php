@@ -2,7 +2,7 @@
 @section('body')
 <div class="card-footer small text-mutted">
     <h3>category</h3>
-    <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Add</a>
+    <a href="{{ route('admin.category.create') }}" class="btn btn-warning">Add</a>
     <table class="table">
         <thead>
             <tr>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -15,8 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        
+        // $this->middleware('auth');
+        view()->share('categories', Category::where('status', '1')->get());
     }
 
     /**
@@ -26,14 +27,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories=Category::where("status",'1')->get();
-        $products=Product::where("status",'1')->get();
-        return view('layout.home',compact('categories','products'));
+        $categories = Category::where("status", '1')->get();
+        $products = Product::where("status", '1')->get();
+        return view('index', compact("categories", "products" ));
     }
-    public function logout(){
-        if(Auth::check()){
+    public function logout()
+    {
+        if (Auth::check()) {
             Auth::logout();
         }
         return redirect('/');
+    }
+    public function category_product($id)
+    {
+        $products = Product::where( [
+            ['idCategory','=',$id] ,
+            ['status','=','1'] 
+              ])->get();
+        return view('layout.category_product', compact("products","products"));
+    }
+    public function single_product($id)
+    {
+        $product = Product::where([
+            ['id', '=', $id],
+            ['status', '=', '1'],
+        ])->get();
+        return view('layout.single_product', compact('product', 'product'));
     }
 }
