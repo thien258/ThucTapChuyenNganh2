@@ -24,7 +24,7 @@
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
-					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+					<a class="navbar-brand logo_h" href="{{route('welcome')}}"><img src="img/logo.png" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
@@ -53,17 +53,13 @@
 								<ul class="dropdown-menu">
 									<li class="nav-item"> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-									<li class="nav-item"><a class="nav-link" href="{{ route('tracking') }}">Tracking</a></li>
+									
 								</ul>
 							</li>
 
 						</ul>
 
-						<ul class="nav-shop">
-							<li class="nav-item"><button><i class="ti-search"></i></button></li>
-							<li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-							<li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
-						</ul>
+					
 					</div>
 				</div>
 			</nav>
@@ -79,7 +75,7 @@
 		<div class="footer-area">
 			<div class="container">
 				<div class="row section_gap">
-					<div class="col-lg-3 col-md-6 col-sm-6">
+				   <div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
@@ -91,20 +87,8 @@
 							</p>
 						</div>
 					</div>
-					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title">Quick Links</h4>
-							<ul class="list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Shop</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Product</a></li>
-								<li><a href="#">Brand</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-2 col-md-6 col-sm-6">
+				
+		   <div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="single-footer-widget instafeed">
 							<h4 class="footer_title">Gallery</h4>
 							<ul class="list instafeed d-flex flex-wrap">
@@ -117,7 +101,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+					   <div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title">Contact Us</h4>
 							<div class="ml-40">

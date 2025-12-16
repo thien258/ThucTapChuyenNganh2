@@ -2,18 +2,18 @@
 @section('body')
 <div class="card-footer small text-mutted">
     <h3>product</h3>
-   
+       <a href="{{ route('admin.product.create') }}" class="btn btn-warning">Add</a>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
+                <th scope="col">Decription</th>
                 <th scope="col">Category</th>
                 <th scope="col">Image</th>
                 <th scope="col">Price</th>
                 <th scope="col">Status</th>
 
-                <th scope="col">View</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
 
@@ -25,11 +25,13 @@
                 <th scope="row">{{ $object->id }}</th>
 
                 <td>{{$object->title}}</td>
+                <td>{{$object->decription}}</td>
                 <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
 </svg>
                 {{$object->category->name}}</td>
+                  
                 <td><img src="{{ $object->image }}"width="150" alt=""></td>
                 <td>{{$object->price}}</td>
               <td>
@@ -45,10 +47,10 @@
       </svg>
       @endif
       </td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
-                <td><a href=" {{ route('admin.category.edit',['category'=>$object->id]) }}  "><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
-                <td><a href="{{route('admin.category.destroy',['category'=>$object->id])}}" title="Delete {{$object->name}}" onclick="event.preventDefault();window.confirm('Bạn đã chắc chắn xóa '+ '{{$object->name}}' +' chưa?') ?document.getElementById('category-delete-{{ $object->id }}').submit() :0;" class="btn btn-danger"><i class="far fa-trash-alt"></i>
-                        <form action="{{ route('admin.category.destroy', ['category' => $object->id]) }}" method="post" id="category-delete-{{ $object->id }}">
+               
+                <td><a href=" {{ route('admin.product.edit',['product' =>$object->id]) }}  "><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
+                <td><a href="{{route('admin.product.destroy',['product'=>$object->id])}}" title="Delete {{$object->name}}" onclick="event.preventDefault();window.confirm('Bạn đã chắc chắn xóa '+ '{{$object->name}}' +' chưa?') ?document.getElementById('product-delete-{{ $object->id }}').submit() :0;" class="btn btn-danger"><i class="far fa-trash-alt"></i>
+                        <form action="{{ route('admin.product.destroy', ['product' => $object->id]) }}" method="post" id="product-delete-{{ $object->id }}">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
                         </form>

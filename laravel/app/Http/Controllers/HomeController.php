@@ -28,7 +28,11 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where("status", '1')->get();
-        $products = Product::where("status", '1')->get();
+    $products = Product::where('status', 1)
+        ->whereHas('category', function ($q) {
+            $q->where('status', 1);
+        })
+        ->get();
         return view('index', compact("categories", "products" ));
     }
     public function logout()

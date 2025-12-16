@@ -8,8 +8,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Status</th>
-                <th scope="col">View</th>
+                <th scope="col">image</th>
+                <th scope="col">status</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
 
@@ -34,7 +34,7 @@
       </svg>
       @endif
       </td>
-                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
+               
                 <td><a href=" {{ route('admin.category.edit',['category'=>$object->id]) }}  "><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
                 <td><a href="{{route('admin.category.destroy',['category'=>$object->id])}}" title="Delete {{$object->name}}" onclick="event.preventDefault();window.confirm('Bạn đã chắc chắn xóa '+ '{{$object->name}}' +' chưa?') ?document.getElementById('category-delete-{{ $object->id }}').submit() :0;" class="btn btn-danger"><i class="far fa-trash-alt"></i>
                         <form action="{{ route('admin.category.destroy', ['category' => $object->id]) }}" method="post" id="category-delete-{{ $object->id }}">

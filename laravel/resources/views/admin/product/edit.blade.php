@@ -1,16 +1,56 @@
-@extends('layout/admin')
+@extends('layout.admin')
+
 @section('body')
-    <div style="margin-left: 280px; margin-top: 100px; padding: 20px;">
+<div class="container">
+  <div class="row">
 
     <form action="{{route('admin.product.update',['product'=>$product->id])}}" method="POST">
-        @csrf()
-        {{method_field('put')}}
+      @csrf()
+      {{method_field('put')}}
       <div class="mb-3">
-        <label for="email" class="form-label">Product</label>
-        <input type="text" class="form-control" value="{{$product->name}}" id="name" name="name" aria-describedby="emailHelp">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{$product->title}}">
       </div>
-     
-      <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+      <div class="mb-3">
+        <label for="decription" class="form-label">Decription</label>
+        <input type="text" class="form-control" id="decription" name="decription" value="{{$product->decription}}">
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">image</label>
+        <input type="text" class="form-control" id="image" name="image" value="{{$product->image}}">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">price</label>
+        <input type="text" class="form-control" id="price" name="price" value="{{$product->price}}">
+      </div>
+  </div>
+
+         <div class="mb-3">
+                <label for="idCategory" name='idCategory' class="form-label">Category</label>
+                <select name="idCategory" class='form-control'>
+                    @forelse($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name  }}</option>
+                    @empty
+                    <option>Không có category</option>
+                    @endforelse
+                </select>
+            </div>
+
+  <select name="status" class='form-control'>
+    @if ($product->status ==1)
+    <option value="1" selected>ON</option>
+    @else
+    <option value="1">ON</option>
+    @endif
+    <option value="0">Off</option>
+  </select>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a href="{{ route('admin.product.index') }} " class='btn btn-secondary'>BACK</a>
+  </form>
+
 </div>
+</div>
+
 @endsection
