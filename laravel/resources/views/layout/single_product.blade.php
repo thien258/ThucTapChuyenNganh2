@@ -17,8 +17,10 @@
 		</div>
 		</section>
 
-	@forelse($product as $product)
 
+		
+	@forelse($products as $product)
+		
 
 		<div class="product_image_area">
 			<div class="container">
@@ -56,6 +58,41 @@
 		@empty
 		<p>Không có sản phẩm</p>
 	@endforelse
+
+
+
+ @foreach($products as $product)
+
+    <h5>Comment</h5>
+
+
+<form action="{{ route('comments.store') }}" method="POST">
+	  @csrf
+        <input type="hidden" name="idProduct" value="{{ $product->id }}">
+  <div class="mb-3">
+    <input type="text"lass="form-control" name="name" placeholder="Tên" required>
+  </div>
+  <div class="mb-3">
+    <textarea name="chat" placeholder="Nội dung" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    @foreach($product->comment as $c)
+        <p><strong>{{ $c->name }}</strong>: {{ $c->chat }}</p>
+
+        <form action="{{ route('comments.destroy', $c->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Xoá</button>
+        </form>
+    @endforeach
+
+@endforeach
+
+
+
+
 		<section class="offer" id="parallax-1" data-anchor-target="#parallax-1" data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
 		<div class="container">
 			<div class="row">

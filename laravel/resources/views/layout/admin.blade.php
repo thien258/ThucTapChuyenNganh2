@@ -115,7 +115,7 @@
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="{{route('admin.category.index')}}">Category</a>
                         <a class="collapse-item" href="{{route('admin.product.index')}}">product</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="{{ route('admin.contacts.index') }}">Contact</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>

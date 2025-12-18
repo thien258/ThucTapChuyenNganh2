@@ -75,29 +75,22 @@
           </div>
         </div>
         <div class="col-md-8 col-lg-9">
-          <form action="#/" class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
-                </div>
-                <div class="form-group">
-                  <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="form-group">
-                    <textarea class="form-control different-control w-100" name="message" id="message" cols="30" rows="5" placeholder="Enter Message"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="form-group text-center text-md-right mt-3">
-              <button type="submit" class="button button--active button-contactForm">Send Message</button>
-            </div>
-          </form>
+       <form action="{{ route('contact.store') }}" method="POST">
+          @csrf()
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="name" name="name" id="name" class="form-control"  aria-describedby="emailHelp" required>
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" required>
+   
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">message</label>
+    <textarea type="text" name="message" class="form-control" id="message" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
         </div>
       </div>
     </div>

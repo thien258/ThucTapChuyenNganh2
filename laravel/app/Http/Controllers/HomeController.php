@@ -52,10 +52,11 @@ class HomeController extends Controller
     }
     public function single_product($id)
     {
-        $product = Product::where([
-            ['id', '=', $id],
-            ['status', '=', '1'],
-        ])->get();
-        return view('layout.single_product', compact('product', 'product'));
+         $products = Product::with('comment')
+        ->where('id', $id)
+        ->where('status', 1)
+        ->get();
+        return view('layout.single_product', compact('products'));
     }
+    
 }
