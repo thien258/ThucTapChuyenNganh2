@@ -69,12 +69,14 @@ class ProductController extends Controller
     }
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->delete();
-        if ($product)
-            return redirect()->route('admin.product.index');
-        else {
-            return back();
-        }
+     $product = Product::find($id);
+
+    if (!$product) {
+  
+        return back()->with('error', 'Sản phẩm không tồn tại.');
+    }
+     $product->delete();
+
+    return redirect()->route('admin.product.index');
     }
 }

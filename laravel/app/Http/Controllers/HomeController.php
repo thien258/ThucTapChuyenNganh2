@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Footer;
+use App\Models\Love;
 use App\Models\Product;
 
 class HomeController extends Controller
@@ -16,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+   
         view()->share('categories', Category::where('status', '1')->get());
     }
 
@@ -27,13 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::where("status", '1')->get();
-    $products = Product::where('status', 1)
-        ->whereHas('category', function ($q) {
-            $q->where('status', 1);
-        })
-        ->get();
-        return view('index', compact("categories", "products" ));
+            $categories = Category::where("status", '1')->get();
+        $products = Product::where('status', 1)
+            ->whereHas('category', function ($q) {
+                $q->where('status', 1);
+            })
+            ->get();
+                $footers = Footer::All();
+        
+            return view('index', compact("categories", "products" ,"footers"));
     }
     public function logout()
     {
@@ -58,5 +62,5 @@ class HomeController extends Controller
         ->get();
         return view('layout.single_product', compact('products'));
     }
-    
+
 }

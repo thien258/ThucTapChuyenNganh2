@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">price</label>
-                <input type="text" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+                <input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
             </div>
 
 
